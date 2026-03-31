@@ -1,10 +1,12 @@
 package com.kenny.rickandmortyapp.presentation.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -21,6 +23,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.ColorPainter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
@@ -28,15 +32,12 @@ import com.kenny.rickandmortyapp.domain.model.Character
 import com.kenny.rickandmortyapp.domain.model.CharacterStatus
 
 @Composable
-fun CharacterItem(character: Character) {
+fun CharacterItem(character: Character, modifier: Modifier = Modifier) {
     Card(
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(12.dp)
+        modifier = modifier.width(270.dp),
+        shape = RoundedCornerShape(16.dp)
     ) {
-        Row(
-            modifier = Modifier.padding(8.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
+        Column(modifier = Modifier.fillMaxWidth()) {
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
                     .data(character.imageUrl)
@@ -47,37 +48,48 @@ fun CharacterItem(character: Character) {
                 error = ColorPainter(Color(0xFFFFCCCC)),
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
-                    .size(80.dp)
-                    .clip(RoundedCornerShape(8.dp))
+                    .fillMaxWidth()
+                    .weight(0.8f)
             )
-            Spacer(modifier = Modifier.width(12.dp))
-            Column {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(0.2f)
+                    .padding(horizontal = 16.dp, vertical = 12.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
                 Text(
                     text = character.name,
-                    style = MaterialTheme.typography.titleMedium
+                    style = MaterialTheme.typography.titleLarge,
+                    textAlign = TextAlign.Center
                 )
+                Spacer(modifier = Modifier.height(6.dp))
                 Text(
                     text = character.species,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    textAlign = TextAlign.Center
                 )
+                Spacer(modifier = Modifier.height(6.dp))
                 Row(verticalAlignment = Alignment.CenterVertically) {
                     Spacer(
                         modifier = Modifier
-                            .size(8.dp)
+                            .size(10.dp)
                             .clip(CircleShape)
                             .background(character.status.toColor())
                     )
-                    Spacer(modifier = Modifier.width(4.dp))
+                    Spacer(modifier = Modifier.width(6.dp))
                     Text(
                         text = character.status.displayName,
-                        style = MaterialTheme.typography.bodySmall
+                        style = MaterialTheme.typography.bodyMedium
                     )
                 }
             }
         }
     }
 }
+
 
 private fun CharacterStatus.toColor(): Color = when (this) {
     CharacterStatus.ALIVE -> Color(0xFF4CAF50)
@@ -91,3 +103,19 @@ private val CharacterStatus.displayName: String
         CharacterStatus.DEAD -> "Dead"
         CharacterStatus.UNKNOWN -> "Unknown"
     }
+
+
+@Preview(showBackground = true)
+@Composable
+private fun CharacterItemPreview() {
+    CharacterItem(
+        character = Character(
+            id = 1,
+            name = "Rick Sanchez",
+            status = CharacterStatus.ALIVE,
+            species = "Human",
+            imageUrl = ""
+        ),
+        modifier = Modifier.height(500.dp)
+    )
+}
