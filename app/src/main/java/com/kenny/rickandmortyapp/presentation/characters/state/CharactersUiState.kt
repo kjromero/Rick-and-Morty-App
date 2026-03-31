@@ -1,4 +1,4 @@
-package com.kenny.rickandmortyapp.presentation.characters
+package com.kenny.rickandmortyapp.presentation.characters.state
 
 import com.kenny.rickandmortyapp.domain.model.Character
 

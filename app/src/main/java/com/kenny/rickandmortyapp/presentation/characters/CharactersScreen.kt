@@ -16,6 +16,8 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.kenny.rickandmortyapp.domain.model.Character
+import com.kenny.rickandmortyapp.presentation.characters.state.CharactersUiState
+import com.kenny.rickandmortyapp.presentation.characters.state.CharactersViewModel
 import com.kenny.rickandmortyapp.presentation.components.CharacterItem
 import com.kenny.rickandmortyapp.presentation.components.ErrorScreen
 import com.kenny.rickandmortyapp.presentation.components.LoadingScreen
