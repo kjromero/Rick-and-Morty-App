@@ -52,7 +52,7 @@ fun CharacterItem(character: Character, modifier: Modifier = Modifier) {
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .weight(0.8f),
+                    .weight(1f),
                 loading = {
                     Box(
                         modifier = Modifier
@@ -82,7 +82,6 @@ fun CharacterItem(character: Character, modifier: Modifier = Modifier) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .weight(0.2f)
                     .padding(horizontal = 16.dp, vertical = 12.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
