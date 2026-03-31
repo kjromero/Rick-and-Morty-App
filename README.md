@@ -7,7 +7,7 @@ App Android que consume la [Rick and Morty API](https://rickandmortyapi.com/api/
 ## Stack técnico
 
 - **Lenguaje:** Kotlin
-- **UI:** Jetpack Compose + Material 3
+- **UI:** Jetpack Compose 
 - **Arquitectura:** MVVM + Clean Architecture (UseCase + Repository)
 - **Patrón UI:** MVI con sealed class `UiState`
 - **Networking:** Retrofit + OkHttp + Kotlin Serialization
@@ -72,14 +72,15 @@ com.kenny.rickandmortyapp/
 
 ## Qué mejoraría con más tiempo
 
-- Implementar **Paging 3** para scroll infinito consumiendo el paginado de la API
+- Implementar paginación para scroll infinito consumiendo el paginado de la API
 - Agregar **tests unitarios** con MockK/Turbine para ViewModel y UseCase, y tests de UI con Compose Test
 - **Pantalla de detalle** con navegación via Navigation Compose
-- **Manejo de conectividad offline** con Room como caché local y NetworkBoundResource
-- **Módulos Gradle** para separar capas (`:data`, `:domain`, `:presentation`) y acelerar compilación incremental
+- **Manejo de conectividad offline** con Room como caché local 
 
 ---
 
 ## Uso de IA
 
-Se utilizó IA como asistente para la generación del scaffolding del proyecto siguiendo la especificación técnica definida, manteniendo revisión y validación manual de cada decisión de diseño y arquitectura.
+Se utilizó IA como asistente de desarrollo y principal herramienta de apoyo en la implementación del código. Las tareas se asignaron al modelo adecuado siguiendo las buenas prácticas de Android y las decisiones de arquitectura definidas por el ingeniero a cargo.
+
+En este proceso, la IA se enfoca en la ejecución técnica, mientras que el ingeniero lidera el diseño y la arquitectura de la aplicación, dirigiendo el uso del modelo de Claude.
