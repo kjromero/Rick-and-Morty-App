@@ -4,6 +4,16 @@ App Android que consume la [Rick and Morty API](https://rickandmortyapi.com/api/
 
 ---
 
+## Screenshots
+
+<p align="center">
+  <img src="Screen1.png" width="270" alt="Dark mode"/>
+  &nbsp;&nbsp;&nbsp;
+  <img src="Screen2.png" width="270" alt="Light mode"/>
+</p>
+
+---
+
 ## Stack técnico
 
 - **Lenguaje:** Kotlin
